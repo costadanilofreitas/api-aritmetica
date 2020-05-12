@@ -24,9 +24,39 @@ public class MatematicaController {
     public Integer soma(@RequestBody Matematica matematica){
         List<Integer> numeros = matematica.getNumeros();
         if (numeros.isEmpty() || numeros.size() < 2){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+            throw new  ResponseStatusException(HttpStatus.BAD_REQUEST,
                     "É necessario ao menos 2 numeros para serem somado");
         }
         return matematicaService.soma(numeros);
+    }
+
+    @PostMapping("subtracao")
+    public Integer subtracao(@RequestBody Matematica matematica){
+        List<Integer> numeros = matematica.getNumeros();
+        if (numeros.isEmpty() || numeros.size() < 2){
+            throw new  ResponseStatusException(HttpStatus.BAD_REQUEST,
+                    "É necessario ao menos 2 numeros para serem somado");
+        }
+        return matematicaService.subtracao(numeros);
+    }
+
+    @PostMapping("multiplicacao")
+    public Integer multiplicacao(@RequestBody Matematica matematica){
+        List<Integer> numeros = matematica.getNumeros();
+        if (numeros.isEmpty() || numeros.size() < 2){
+            throw new  ResponseStatusException(HttpStatus.BAD_REQUEST,
+                    "É necessario ao menos 2 numeros para serem somado");
+        }
+        return matematicaService.multiplicacao(numeros);
+    }
+
+    @PostMapping("divisao")
+    public Integer divisao(@RequestBody Matematica matematica){
+        List<Integer> numeros = matematica.getNumeros();
+        if (numeros.isEmpty() || numeros.size() < 2){
+            throw new  ResponseStatusException(HttpStatus.BAD_REQUEST,
+                    "É necessario ao menos 2 numeros para serem somado");
+        }
+        return matematicaService.divisao(numeros);
     }
 }
